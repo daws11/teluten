@@ -22,3 +22,28 @@
     margin-left: 20px;
     cursor: pointer;
 }
+
+/* Tambahkan di file CSS yang sesuai, misalnya public/css/sidebar.css */
+
+.nav-menu li a {
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu li a i {
+    margin-right: 10px; /* Pastikan ikon memiliki ruang dengan teks */
+}
+
+/* Opsi untuk gaya hover */
+.nav-menu li a:hover {
+    background-color: #f4f4f4;
+}
+
+/* Gaya khusus untuk tombol Logout jika diperlukan */
+.logout-button {
+    color: #ff3232; /* Atau warna apa pun yang Anda pilih */
+}
+

@@ -1,0 +1,53 @@
+/* public/css/app.css atau public/css/specific-stylesheet.css */
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 600px; /* Atur lebar maksimal sesuai preferensi */
+    margin: 40px auto; /* Tengah kanan kontainer di halaman */
+}
+
+.form-container {
+    margin-top: 20px;
+}
+
+.form-title {
+    margin-bottom: 10px;
+}
+
+.form-description {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-button {
+    background-color: #ff3232; /* Warna tombol sesuai tema */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.submit-button:hover {
+    background-color: #e60000; /* Warna saat di-hover */
+}

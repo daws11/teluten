@@ -6,7 +6,7 @@
         <i class="fas fa-bars"></i>
     </div>
     <div class="navbar-content">
-        <h1>Welcome Back, Ali 👋</h1>
+        <h1>Welcome Back, Budi 👋</h1>
         <p>Here's what's happening with your store today.</p>
     </div>
     <div class="navbar-icons">

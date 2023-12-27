@@ -1,4 +1,4 @@
-<aside class="sidebar">
+<aside id="sidebar" class="sidebar">
     <div class="sidebar-header">
         <img src="https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg" alt="Budi Pekerti" class="profile-image">
         <h3 class="profile-name">Budi Pekerti</h3>
@@ -14,6 +14,7 @@
                     <a href="/products"><i class="fas fa-boxes"></i>Produk</a>
                     <ul class="dropdown-menu">
                         <li><a href="/products/menu">Menu</a></li>
+                        <li><a href="/products/edit">Edit</a></li>
                         <!-- Other submenu items can be added here -->
                     </ul>
                 </li>
@@ -26,6 +27,12 @@
             <ul class="nav-menu">
                 <li><a href="/settings"><i class="fas fa-cog"></i>Settings</a></li>
                 <!-- Other settings items can be added here -->
+            </ul>
+        </div>
+        <div class="nav-section">
+            <ul class="nav-menu">
+                <li><a href="/help"><i class="fas fa-question-circle"></i>Help</a></li>
+                <li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout Account</a></li>
             </ul>
         </div>
     </nav>

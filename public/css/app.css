@@ -4,14 +4,66 @@ body, html {
     font-family: 'Arial', sans-serif;
 }
 
+/* Top navbar styling */
+.top-navbar {
+    background-color: #ff3232;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+}
+
+.burger {
+    cursor: pointer;
+}
+
+.navbar-content h1,
+.navbar-content p {
+    margin: 0;
+}
+
+.navbar-icons i {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+/* Sidebar off-canvas styling */
 .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Width of sidebar */
+    width: 250px;
+    height: 100%;
+    background-color: #ffffff;
+    transition: left 0.3s;
+}
+
+/* Main content styling */
+.main-content {
+    margin-left: 250px; /* Same as sidebar width */
+    transition: margin-left 0.3s;
+}
+
+/* When sidebar is active */
+.sidebar.active {
+    left: 0;
+}
+
+.main-content.active {
+    margin-left: 0;
+}
+
+
+/* .sidebar {
     width: 256px;
     background-color: #ffffff;
     height: 100vh;
     box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     z-index: 1000;
-}
+} */
 
 .sidebar-header {
     text-align: center;
@@ -123,3 +175,4 @@ body, html {
     width: 200px;
     height: auto;
 }
+

@@ -29,6 +29,10 @@ Route::get('/products/menu', function () {
     return view('menu');
 });
 
+Route::get('/products/edit', function () {
+    return view('edit');
+});
+
 
 
 
