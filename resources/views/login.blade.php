@@ -30,7 +30,7 @@
                     </div>
                     <a href="#" class="forgot-password">Forgot Password?</a>
                 </div>
-                <button type="submit" class="login-button">Login</button>
+                <button type="button" class="login-button" onclick="location.href='{{ url('/home') }}'">Login</button>
             </form>
         </div>
     </div>
