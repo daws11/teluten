@@ -33,6 +33,11 @@ Route::get('/products/edit', function () {
     return view('edit');
 });
 
+Route::get('/tenant-contract', function () {
+    return view('tenant-contract');
+});
+
+
 
 
 
