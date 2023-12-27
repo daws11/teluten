@@ -18,3 +18,26 @@ function toggleSidebar() {
     sidebar.classList.toggle("active");
     mainContent.classList.toggle("active");
 }
+
+function openPaymentModal() {
+    document.getElementById('paymentModal').style.display = 'block';
+}
+
+function closePaymentModal() {
+    document.getElementById('paymentModal').style.display = 'none';
+}
+
+function confirmPayment() {
+    closePaymentModal(); // Close the payment modal
+    document.getElementById('successModal').style.display = 'block'; // Open the success modal
+}
+
+function closeSuccessModal() {
+    document.getElementById('successModal').style.display = 'none';
+}
+
+function printReceipt() {
+    // Add your printing logic here
+    console.log('Printing receipt...');
+}
+

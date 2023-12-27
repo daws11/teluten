@@ -17,7 +17,75 @@
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
 }
+
+.order-cart h3 {
+    color: #ff3232; /* Merah */
+    margin-bottom: 10px;
+}
+
+.order-cart p {
+    margin: 5px 0;
+}
+
+.menu-item {
+    border: 1px solid #ff3232; /* Merah */
+    padding: 10px;
+    margin-bottom: 10px; /* Sesuaikan dengan kebutuhan */
+    border-radius: 5px;
+}
+
+.item-name {
+    font-weight: bold;
+}
+
+.item-price {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.item-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.minus-button,
+.plus-button {
+    background-color: #ff3232; /* Merah */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.quantity-input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.order-button {
+    background-color: #ff3232; /* Merah */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin-top: auto; /* Mendorong tombol ke bawah */
+    width: 100%;
+    cursor: pointer;
+}
+
+.order-button:hover {
+    background-color: #e60000;
+}
+
 
 table {
     width: 100%;
@@ -65,4 +133,114 @@ table th, table td {
     margin-top: 20px;
     width: 100%;
 }
+
+/* Style untuk modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 5px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* The buttons */
+.btn-pay, .btn-cancel {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background-color: #ccc;
+    color: black;
+}
+
+/* Add animation to "check" icon for success */
+@keyframes checkmark {
+    0% {
+        height: 0;
+        width: 0;
+        opacity: 0;
+    }
+    20% {
+        height: 0;
+        width: 0;
+        opacity: 1;
+    }
+    40% {
+        height: 50px;
+        width: 0;
+        opacity: 1;
+    }
+    100% {
+        height: 50px;
+        width: 100px;
+        opacity: 1;
+    }
+}
+
+.check-icon {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    position: relative;
+    border-radius: 50%;
+    box-sizing: content-box;
+    overflow: hidden;
+}
+
+/* The checkmark / tick */
+.check-icon::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 10px;
+    background-color: #fff;
+    left: 35px;
+    top: 15px;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    border-style: solid;
+    border-color: #5cb85c;
+    animation: checkmark 0.3s ease-in-out 0.4s forwards;
+}
+
+/* Add some hover effects to buttons */
+.btn-pay:hover, .btn-cancel:hover {
+    opacity: 0.8;
+}
+
 
