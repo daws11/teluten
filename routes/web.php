@@ -21,9 +21,14 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/home', function () {
-    return view('app');
+// Route::get('/home', function () {
+//     return view('app');
+// });
+
+Route::get('/products/menu', function () {
+    return view('menu');
 });
+
 
 
 

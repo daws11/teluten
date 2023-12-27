@@ -106,3 +106,20 @@ body, html {
     display: inline-block;
 }
 
+.home-container {
+    background-color: #ff3232; /* Replace with the exact red color you need */
+    min-height: 100vh; /* Full height */
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.logo-container {
+    text-align: center;
+}
+
+.teluten-logo {
+    /* Replace with the actual width and height of your logo */
+    width: 200px;
+    height: auto;
+}

@@ -14,16 +14,18 @@
                     <a href="/products"><i class="fas fa-boxes"></i>Produk</a>
                     <ul class="dropdown-menu">
                         <li><a href="/products/menu">Menu</a></li>
+                        <!-- Other submenu items can be added here -->
                     </ul>
                 </li>
                 <li><a href="/location-facilities"><i class="fas fa-map-marker-alt"></i>Location & Facilities</a></li>
-                <li><a href="/tenant-contract"><i class="fas fa-file-contract"></i> Tenant Contract</a></li>
+                <li><a href="/tenant-contract"><i class="fas fa-file-contract"></i>Tenant Contract</a></li>
             </ul>
         </div>
         <div class="nav-section">
             <p class="nav-section-title">SETTINGS</p>
             <ul class="nav-menu">
-                <li><a href="/settings"><i class="fas fa-gear-alt">Settings</a></li>
+                <li><a href="/settings"><i class="fas fa-cog"></i>Settings</a></li>
+                <!-- Other settings items can be added here -->
             </ul>
         </div>
     </nav>

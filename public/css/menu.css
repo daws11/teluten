@@ -1,0 +1,68 @@
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.product-table {
+    width: 70%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-cart {
+    width: 25%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.amount-button {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 5px 10px;
+}
+
+.amount-input {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 5px;
+    width: 50px;
+}
+
+.edit-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.order-button {
+    background-color: #f44336; /* Red */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+}
+
