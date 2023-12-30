@@ -37,6 +37,10 @@ Route::get('/tenant-contract', function () {
     return view('tenant-contract');
 });
 
+Route::resource('produk', ProdukController::class);
+Route::resource('tenant', TenantController::class);
+
+
 
 
 

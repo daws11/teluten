@@ -8,13 +8,13 @@
         <div class="nav-section">
             <p class="nav-section-title">FEATURES</p>
             <ul class="nav-menu">
-                <li><a href="/dashboard"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
-                <li><a href="/tenant-data"><i class="fas fa-users"></i>Tenant Data</a></li>
+                <!-- <li><a href="/dashboard"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li> -->
+                <!-- <li><a href="/tenant-data"><i class="fas fa-users"></i>Tenant Data</a></li> -->
                 <li class="nav-dropdown">
                     <a href="/products"><i class="fas fa-boxes"></i>Produk</a>
                     <ul class="dropdown-menu">
                         <li><a href="/products/menu">Menu</a></li>
-                        <li><a href="/products/edit">Edit</a></li>
+                        <li><a href="/products/edit">Tambah Produk</a></li>
                         <!-- Other submenu items can be added here -->
                     </ul>
                 </li>
