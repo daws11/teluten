@@ -44,6 +44,10 @@ Route::get('/laporan', function () {
     return view('laporan'); 
 });
 
+Route::get('/location-facilities', function () {
+    return view('locationfacilities');
+});
+
 Route::resource('produk', ProdukController::class);
 // Route::resource('tenant', TenantController::class);
 Route::delete('/produk/{produk}', [ProdukController::class, 'destroy']);

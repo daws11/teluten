@@ -228,3 +228,46 @@ body, html {
 }
 
 
+.tabs ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.tabs ul li {
+    margin-right: 10px;
+}
+
+.location-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.location-item {
+    width: 40px;
+    height: 40px;
+    background: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+/* Define your color variables */
+:root {
+    --available: #28a745;
+    --unavailable: #dc3545;
+}
+
+/* Styles for available/unavailable indicators */
+.location-item.available {
+    background: var(--available);
+}
+
+.location-item.unavailable {
+    background: var(--unavailable);
+}
