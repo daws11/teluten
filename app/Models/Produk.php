@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Produk extends Model
 {
     protected $table = 'produk'; // Menentukan nama tabel secara eksplisit
+    protected $guarded = ['id'];
     use HasFactory;
 
     

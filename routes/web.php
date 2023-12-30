@@ -26,9 +26,7 @@ Route::get('/home', function () {
 //     return view('app');
 // });
 
-Route::get('/products/menu', function () {
-    return view('menu');
-});
+Route::get('/products/menu', [ProdukController::class, 'menu']);
 
 Route::get('/products/edit', function () {
     return view('edit');
@@ -39,14 +37,8 @@ Route::get('/tenant-contract', function () {
 });
 
 Route::resource('produk', ProdukController::class);
-Route::resource('tenant', TenantController::class);
+// Route::resource('tenant', TenantController::class);
+Route::delete('/produk/{produk}', [ProdukController::class, 'destroy']);
 
-Route::get('/products/menu', [ProdukController::class, 'menu']);
-
-
-
-
-
-
-
+Route::post('/produk', [ProdukController::class, 'store'])->name('produk.store');
 
