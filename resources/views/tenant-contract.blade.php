@@ -61,5 +61,39 @@
 
         <button type="submit" class="submit-button">Submit</button>
     </form>
+
+    <table class="tenant-contract-table">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Restoran</th>
+                <th>Nama Pemilik</th>
+                <th>No Telepon</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        @if(isset($contracts))
+            @foreach($contracts as $contract)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $contract->restaurant_name }}</td>
+                <td>{{ $contract->owner_name }}</td>
+                <td>{{ $contract->owner_phone }}</td>
+                <td>
+                    <form action="{{ route('tenant-contract.destroy', $contract->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="delete-button">Hapus</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+            @else
+        <p>No contracts found.</p>
+        @endif
+        </tbody>
+    </table>
+</div>
 </div>
 @endsection

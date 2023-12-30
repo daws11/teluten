@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Tenant;
 
 class TenantController extends Controller
 {
@@ -11,9 +11,10 @@ class TenantController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
-    }
+{
+    $contracts = Tenant::all(); // Fetch all tenants
+    return view('tenant-contract');
+}
 
     /**
      * Show the form for creating a new resource.
@@ -58,8 +59,11 @@ class TenantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
+    public function destroy($id)
+{
+    $contract = TenantContract::findOrFail($id);
+    $contract->delete();
+    return redirect()->back()->with('success', 'Contract deleted successfully.');
+}
+
 }
