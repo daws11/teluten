@@ -19,6 +19,10 @@ function toggleSidebar() {
     mainContent.classList.toggle("active");
 }
 
+function completeOrder() {
+    document.getElementById('paymentModal').style.display = 'block';
+}
+
 function openPaymentModal() {
     document.getElementById('paymentModal').style.display = 'block';
 }

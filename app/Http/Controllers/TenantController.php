@@ -12,9 +12,10 @@ class TenantController extends Controller
      */
     public function index()
 {
-    $contracts = Tenant::all(); // Fetch all tenants
-    return view('tenant-contract');
+    $contracts = Tenant::all(); // Make sure this is the correct model name
+    return view('tenant-contract', compact('contracts')); // Ensure the view name matches the file in your views directory
 }
+
 
     /**
      * Show the form for creating a new resource.

@@ -64,9 +64,3 @@ Route::delete('/tenant-contract/{id}', [TenantContractController::class, 'destro
 Route::get('/tenant-contract', [TenantController::class, 'index']);
 
 Route::resource('tenant-contract', TenantController::class);
-
-
-
-
-
-
