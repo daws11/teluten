@@ -22,7 +22,8 @@
                     <td>{{ $item->jumlah_produk }}</td>
                     <td>
                         <button class="edit-button" onclick='openEditModal(@json($item))'>Edit</button>
-                        <button class="edit-button" onclick='deleteProduct({{ $item->id }})'>Hapus</button>
+                        <button class="delete-button" onclick='deleteProduct({{ $item->id }})'>Hapus</button>
+                        <button class="add-to-cart-button" data-product-id="{{ $item->id }}" onclick="addToCart(this)">🛒</button>
                     </td>
                 </tr>
                 @endforeach
@@ -71,77 +72,85 @@
 </div>
 
 
-        <button class="order-button">Buat Pesanan</button>
+    <button class="order-button">Buat Pesanan</button>
     </div>
 
+    {{-- Check if session cart exists --}}
+@if(session('cart'))
     <div class="order-cart">
-    <h3>Order Menu</h3>
-    <p>Order No. 16</p>
-    <div class="menu-item">
-        <p class="item-name">Nasgor Biasa</p>
-        <p class="item-price">Rp. 10.000</p>
-        <div class="item-controls">
-            <button class="minus-button">-</button>
-            <input type="text" class="quantity-input" value="1">
-            <button class="plus-button">+</button>
-        </div>
+        <h3>Order Menu</h3>
+        <p>Order No. 16</p>
+        @foreach(session('cart') as $productId => $details)
+            {{-- Ensure $details is an array and has all necessary keys --}}
+            @if(is_array($details) && isset($details['name'], $details['price'], $details['quantity']))
+                <div class="menu-item">
+                    <p class="item-name">{{ $details['name'] }}</p>
+                    <p class="item-price">{{ 'Rp. ' . number_format($details['price'], 2, ',', '.') }}</p>
+                    <div class="item-controls">
+                        <button class="minus-button" onclick="updateCart({{ $productId }}, {{ max($details['quantity'] - 1, 0) }})">-</button>
+                        <input type="text" class="quantity-input" value="{{ $details['quantity'] }}">
+                        <button class="plus-button" onclick="updateCart({{ $productId }}, {{ $details['quantity'] + 1 }})">+</button>
+                        <button class="delete-button" onclick="removeFromCart({{ $productId }})">Delete</button>
+                    </div>
+                </div>
+            @endif
+        @endforeach
+        <button class="order-button" onclick="completeOrder()">Complete Order</button>
     </div>
-    <div class="menu-item">
-        <p class="item-name">Nasgor Sosis</p>
-        <p class="item-price">Rp. 13.000</p>
-        <div class="item-controls">
-            <button class="minus-button">-</button>
-            <input type="text" class="quantity-input" value="1">
-            <button class="plus-button">+</button>
-        </div>
-    </div>
-    <div class="menu-item">
-        <p class="item-name">Milo</p>
-        <p class="item-price">Rp. 9.000</p>
-        <div class="item-controls">
-            <button class="minus-button">-</button>
-            <input type="text" class="quantity-input" value="1">
-            <button class="plus-button">+</button>
-        </div>
-    </div>
+@endif
+
+  
+
     
-    <!-- Tombol yang memicu modal -->
-<button class="order-button" onclick="openPaymentModal()">Order</button>
+
 
 <!-- Modal Pembayaran -->
 <div id="paymentModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closePaymentModal()">&times;</span>
-        <h3>Total Pesanan</h3>
-        <input type="text" value="Rp.32.000" readonly>
-        <h3>Dibayar</h3>
-        <input type="text" value="Rp.50.000" readonly>
-        <h3>Kembalian</h3>
-        <input type="text" value="Rp.18.000" readonly>
-        <button class="btn-pay" onclick="confirmPayment()">Bayar</button>
-        <button class="btn-cancel" onclick="closePaymentModal()">Batal</button>
-    </div>
+<div class="payment-modal">
+  <div class="payment-modal-header">
+    <i class="your-icon-class"></i> <!-- Replace with your actual icon class -->
+    <span>Total Pesanan</span>
+  </div>
+  <div class="payment-modal-body">
+        <div class="payment-modal-field">
+                    <label for="total">Total Pesanan</label>
+                    <input type="text" id="total" value="Rp.32.000" readonly>
+                    </div>
+                    <div class="payment-modal-field">
+                    <label for="paid">Dibayar</label>
+                    <input type="text" id="paid" value="Rp.50.000" readonly>
+                    </div>
+                    <div class="payment-modal-field">
+                    <label for="change">Kembalian</label>
+                    <input type="text" id="change" value="Rp.18.000" readonly>
+                    </div>
+                </div>
+                <div class="payment-modal-actions">
+                    <button class="payment-modal-action-button payment-modal-action-button--pay" onclick="confirmPayment()">Bayar</button>
+                    <button class="payment-modal-action-button payment-modal-action-button--cancel"onclick="closePaymentModal()">Batal</button>
+                </div>
+        </div>
+
 </div>
 
+
+        
 <!-- Modal Konfirmasi Pembayaran Berhasil -->
 <div id="successModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeSuccessModal()">&times;</span>
-        <div class="success-checkmark">
-            <div class="check-icon">
-                <span class="icon-line line-tip"></span>
-                <span class="icon-line line-long"></span>
-                <div class="icon-circle"></div>
-                <div class="icon-fix"></div>
+        <div class="modal-payment-success">
+            <div class="checkmark-icon">✓</div>
+            <h2>Pembayaran Berhasil!</h2>
+            <div class="payment-details">
+                <p>Order #16</p>
+                <p>Total Rp.32.000</p>
+                <p>Jumlah Uang Rp.50.000</p>
+                <p>Kembalian Rp.18.000</p>
             </div>
-        </div>
-        <h3>Pembayaran Berhasil!</h3>
-        <p>Order #16</p>
-        <p>Total Rp.32.000</p>
-        <p>Jumlah Uang Rp.50.000</p>
-        <p>Kembalian Rp.18.000</p>
-        <button onclick="closeSuccessModal()">Home</button>
-        <button onclick="printReceipt()">Print</button>
+            <button onclick="closeSuccessModal()">Home</button>
+            <button onclick="printReceipt()">Print</button>
+    </div>
+
     </div>
 </div>
 

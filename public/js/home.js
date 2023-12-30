@@ -123,3 +123,56 @@ function deleteProduct(id) {
         .catch(error => console.error('Error:', error));
     }
 }
+
+function addToCart(buttonElement) {
+    var productId = buttonElement.getAttribute('data-product-id');
+    fetch('/cart/add/' + productId, {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ quantity: 1 }) // Assuming you want to add 1 quantity
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to add product to cart');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            console.log('Product added to cart');
+            // Update your cart UI here
+            location.reload();
+        }
+    })
+    .catch(error => console.error(error));
+}
+
+function removeFromCart(productId) {
+    if (confirm('Are you sure you want to remove this item?')) {
+        fetch(`/cart/remove/${productId}`, {
+            method: 'DELETE',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                console.log('Item removed from cart');
+                // Update cart UI here (e.g., fetchCart())
+                location.reload();
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+}
+
+
+
+
+
+

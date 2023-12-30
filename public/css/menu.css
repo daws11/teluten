@@ -1,24 +1,59 @@
-.menu-container {
+/* Style untuk container utama yang memuat tabel menu dan order cart */
+.container {
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 0 auto; /* Centering the container */
+    padding: 20px;
+}
+
+  .menu-layout {
     display: flex;
     justify-content: space-between;
+}
+
+.menu-container {
+    display: flex;
+    flex-wrap: nowrap; /* Mencegah wrapping */
+    justify-content: space-between; /* Memberi jarak antara item */
+    align-items: flex-start; /* Alinea item ke atas */
+    gap: 20px; /* Memberikan jarak antara item */
     padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px; /* Sesuaikan ini berdasarkan lebar maksimum yang diinginkan */
+}
+
+.menu-table {
+    flex-grow: 1; /* Memungkinkan tabel untuk tumbuh dan mengisi ruang yang tersedia */
+    max-width: calc(100% - 300px); /* Mengatur lebar maksimum agar tidak tumpang tindih dengan order-cart */
+    margin-right: 20px; /* Memberikan ruang antara tabel menu dan order-cart */
 }
 
 .product-table {
-    width: 70%;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Full width */
+    margin-bottom: 20px; /* Adds space below the table */
+    border-collapse: collapse; /* Collapse borders */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+}
+
+.product-table th,
+.product-table td {
+    padding: 10px; /* Adds space inside cells */
+    border: 1px solid #ddd; /* Light border for cells */
+    text-align: left; /* Aligns text to the left */
+}
+
+
+
+.product-table-container {
+    margin-bottom: 20px; /* Adds space below the product table */
 }
 
 .order-cart {
-    width: 25%;
-    background-color: #fff;
+    /* flex-basis menetapkan ukuran awal dari item sebelum ruang tersisa didistribusikan */
+    flex-basis: 250px; /* Ini akan menjadi lebar dasar order-cart */
+    /* Tidak perlu menetapkan width karena flex-basis sudah menetapkan lebar awal */
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
+    height: fit-content;
 }
 
 .order-cart h3 {
@@ -112,27 +147,20 @@ table th, table td {
     width: 50px;
 }
 
-.edit-button {
+.edit-button,
+.delete-button {
     background-color: #4CAF50; /* Green */
     color: white;
-    border: none;
     padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px; /* Adds space between buttons */
 }
 
-.order-button {
+.delete-button {
     background-color: #f44336; /* Red */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    margin-top: 20px;
-    width: 100%;
 }
+
 
 /* Style untuk modal */
 .modal {
@@ -243,4 +271,169 @@ table th, table td {
     opacity: 0.8;
 }
 
+.modal-payment-success {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px; /* Sesuaikan lebar maksimal modal sesuai keinginan */
+    margin: 10% auto; /* Posisi modal di tengah secara vertikal dan horizontal */
+    text-align: center; /* Teks di tengah modal */
+  }
+  
+  .modal-payment-success .checkmark-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #28a745; /* Warna hijau untuk ikon ceklis */
+    color: white;
+    line-height: 50px; /* Membuat ikon ceklis vertikal di tengah */
+    margin: 0 auto 10px; /* Spasi di bawah ikon ceklis */
+    font-size: 24px; /* Ukuran ikon ceklis */
+  }
+  
+  /* Style untuk teks sukses pembayaran */
+  .modal-payment-success h2 {
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  /* Style untuk detail pembayaran */
+  .modal-payment-success .payment-details {
+    margin-bottom: 20px;
+    line-height: 1.5; /* Spasi antar baris */
+    color: #555;
+  }
+  
+  /* Style untuk tombol di modal */
+  .modal-payment-success .button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    margin: 0 5px; /* Spasi antara tombol */
+    cursor: pointer; /* Cursor pointer ketika hover */
+  }
+  
+  /* Style untuk tombol Home */
+  .modal-payment-success .button-home {
+    background-color: #007bff; /* Warna biru untuk tombol Home */
+  }
+  
+  /* Style untuk tombol Print */
+  .modal-payment-success .button-print {
+    background-color: #6c757d; /* Warna abu-abu untuk tombol Print */
+  }
+  
+  /* Style untuk animasi ikon ceklis */
+  @keyframes fadeInCheckmark {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.2);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Tambahkan animasi ke ikon ceklis */
+  .modal-payment-success .checkmark-icon {
+    animation: fadeInCheckmark 0.5s ease-in-out forwards;
+  }
+  
+  /* Tambahkan media query untuk responsivitas */
+  @media (max-width: 768px) {
+    .modal-payment-success {
+      width: 90%;
+      margin-top: 20%;
+    }
+  }
+  
+
+  .payment-modal {
+    background: #FFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Adjust the width as needed */
+    margin: 20px auto; /* Center the modal */
+  }
+  
+  .payment-modal-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .payment-modal-header i {
+    font-size: 24px; /* Adjust size to match your icons */
+    margin-right: 8px;
+    color: #ff4500; /* Adjust the color to match your theme */
+  }
+  
+  .payment-modal-body {
+    margin-bottom: 20px;
+  }
+  
+  .payment-modal-field {
+    margin-bottom: 15px;
+  }
+  
+  .payment-modal-field label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .payment-modal-field input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .payment-modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .payment-modal-action-button {
+    background-color: #f44336; /* Red color for the cancel button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .payment-modal-action-button--pay {
+    background-color: #4CAF50; /* Green color for the pay button */
+  }
+  
+  .payment-modal-action-button--cancel {
+    background-color: #f44336; /* Red color for the cancel button */
+  }
+  
+  .delete-button {
+    background-color: #f44336; /* Red */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+  
 
