@@ -40,6 +40,10 @@ Route::get('/debug-cart', function () {
     dd(session('cart'));
 });
 
+Route::get('/laporan', function () {
+    return view('laporan'); 
+});
+
 Route::resource('produk', ProdukController::class);
 // Route::resource('tenant', TenantController::class);
 Route::delete('/produk/{produk}', [ProdukController::class, 'destroy']);

@@ -20,6 +20,7 @@
                 </li>
                 <li><a href="/location-facilities"><i class="fas fa-map-marker-alt"></i>Location & Facilities</a></li>
                 <li><a href="/tenant-contract"><i class="fas fa-file-contract"></i>Tenant Contract</a></li>
+                <li><a href="/laporan"><i class="fas fa-file"></i>Laporan</a></li>
             </ul>
         </div>
         <div class="nav-section">
