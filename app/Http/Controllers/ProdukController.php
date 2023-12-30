@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produk;
 
 class ProdukController extends Controller
 {
@@ -61,4 +62,10 @@ class ProdukController extends Controller
     {
         //
     }
+
+    public function menu()
+{
+    $produk = Produk::all(); // Mengambil semua data produk
+    return view('menu', compact('produk')); // Mengirim data ke view
+}
 }

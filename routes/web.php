@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,9 @@ Route::get('/tenant-contract', function () {
 
 Route::resource('produk', ProdukController::class);
 Route::resource('tenant', TenantController::class);
+
+Route::get('/products/menu', [ProdukController::class, 'menu']);
+
 
 
 
