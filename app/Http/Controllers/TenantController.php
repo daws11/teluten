@@ -29,10 +29,33 @@ class TenantController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    // Validate form data
+    $validatedData = $request->validate([
+        'nama_restoran' => 'required|string|max:255',
+        'nama_pemilik' => 'required|string|max:255',
+        'nomor_telepon' => 'required|string|max:15',
+        'email' => 'required|email|max:255',
+        // 'owner-id-type' => 'required|string',
+        // 'owner-id-number' => 'required|string|max:255',
+        'kota' => 'required|string|max:255',
+        'alamat' => 'required|string',
+    ]);
 
+    // Create a new TenantContract model and save it to the database
+    $contract = new TenantContract();
+    $contract->restaurant_name = $validatedData['nama_restoran'];
+    $contract->owner_name = $validatedData['nama_pemilik'];
+    $contract->owner_phone = $validatedData['nomor_telepon'];
+    $contract->owner_email = $validatedData['email'];
+    // $contract->owner_id_type = $validatedData['owner-id-type'];
+    // $contract->owner_id_number = $validatedData['owner-id-number'];
+    $contract->owner_city = $validatedData['kota'];
+    $contract->owner_address = $validatedData['alamat'];
+    $contract->save();
+
+    return redirect('/tenant-contract')->with('success', 'Tenant contract created successfully.');
+}
     /**
      * Display the specified resource.
      */

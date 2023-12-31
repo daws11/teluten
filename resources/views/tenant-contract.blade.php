@@ -20,18 +20,18 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="owner-name">Nama Pemilik</label>
-                    <input type="text" id="owner-name" name="owner-name" required>
+                    <input type="text" id="nama_pemilik" name="owner-name" required>
                 </div>
                 <div class="form-group">
                     <label for="owner-phone">Nomor Telepon Pemilik</label>
-                    <input type="tel" id="owner-phone" name="owner-phone" required>
+                    <input type="tel" id="nomor_telepon" name="owner-phone" required>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label for="owner-email">Email Pemilik</label>
-                    <input type="email" id="owner-email" name="owner-email" required>
+                    <input type="email" id="email" name="owner-email" required>
                 </div>
                 <div class="form-group">
                     <label for="owner-id-type">Jenis Identitas Pemilik</label>
@@ -49,13 +49,13 @@
                 </div>
                 <div class="form-group">
                     <label for="owner-city">Kota</label>
-                    <input type="text" id="owner-city" name="owner-city" required>
+                    <input type="text" id="kota" name="owner-city" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="owner-address">Alamat Pemilik</label>
-                <input type="text" id="owner-address" name="owner-address" required>
+                <input type="text" id="alamat" name="owner-address" required>
             </div>
         </section>
 
