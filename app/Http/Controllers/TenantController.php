@@ -43,15 +43,15 @@ class TenantController extends Controller
     ]);
 
     // Create a new TenantContract model and save it to the database
-    $contract = new TenantContract();
-    $contract->restaurant_name = $validatedData['nama_restoran'];
-    $contract->owner_name = $validatedData['nama_pemilik'];
-    $contract->owner_phone = $validatedData['nomor_telepon'];
-    $contract->owner_email = $validatedData['email'];
+    $contract = new Tenant();
+    $contract->nama_restoran = $validatedData['nama_restoran'];
+    $contract->nama_pemilik= $validatedData['nama_pemilik'];
+    $contract->nomor_telepon = $validatedData['nomor_telepon'];
+    $contract->email = $validatedData['email'];
     // $contract->owner_id_type = $validatedData['owner-id-type'];
     // $contract->owner_id_number = $validatedData['owner-id-number'];
-    $contract->owner_city = $validatedData['kota'];
-    $contract->owner_address = $validatedData['alamat'];
+    $contract->kota = $validatedData['kota'];
+    $contract->alamat = $validatedData['alamat'];
     $contract->save();
 
     return redirect('/tenant-contract')->with('success', 'Tenant contract created successfully.');
