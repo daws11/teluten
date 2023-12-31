@@ -61,10 +61,10 @@ class TenantController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy($id)
-{
-    $contract = TenantContract::findOrFail($id);
-    $contract->delete();
-    return redirect()->back()->with('success', 'Contract deleted successfully.');
-}
+    {
+        $contract = Tenant::findOrFail($id);
+        $contract->delete();
+        return redirect()->back()->with('success', 'Contract deleted successfully.');
+    }
 
 }

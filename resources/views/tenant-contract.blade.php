@@ -77,9 +77,9 @@
             @foreach($contracts as $contract)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $contract->restaurant_name }}</td>
-                <td>{{ $contract->owner_name }}</td>
-                <td>{{ $contract->owner_phone }}</td>
+                <td>{{ $contract->nama_restoran}}</td>
+                <td>{{ $contract->nama_pemilik }}</td>
+                <td>{{ $contract->nomor_telepon }}</td>
                 <td>
                     <form action="{{ route('tenant-contract.destroy', $contract->id) }}" method="POST">
                         @csrf

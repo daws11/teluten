@@ -60,7 +60,7 @@ Route::put('/cart/update/{productId}', [CartController::class, 'updateCart']);
 Route::get('/cart', [CartController::class, 'showCart']);
 Route::delete('cart/remove/{productId}', [CartController::class, 'removeFromCart']);
 // Define route for deleting tenant contracts
-Route::delete('/tenant-contract/{id}', [TenantContractController::class, 'destroy'])->name('tenant-contract.destroy');
+Route::delete('/tenant-contract/{id}', [TenantController::class, 'destroy'])->name('tenant-contract.destroy');
 Route::get('/tenant-contract', [TenantController::class, 'index']);
 
 Route::resource('tenant-contract', TenantController::class);
